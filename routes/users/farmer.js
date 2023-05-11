@@ -75,7 +75,7 @@ router.get("/findbydistrict/:district", async (req, res) => {
   }
 });
 
-// FIND FARMERS IN DISTRICT BY THEIR SCHEMA
+// FIND FARMERS IN DISTRICT BY THEIR SCHEMA/MODEL
 router.get("/find/farmersindistrict", async (req, res) => {
   try {
     const farmers = await FarmerInDistrict.find();
