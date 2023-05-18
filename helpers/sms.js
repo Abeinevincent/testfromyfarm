@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.post("/", async (req, res) => {
   // TODO: Send message
   const africastalking = AfricasTalking({
-    apiKey: "c753de3d126e76645e77a0a32ebddc412bc61080ab84a3aac90bf74ba2db3151",
+    apiKey: "test1235",
     username: "sandbox",
   });
 
