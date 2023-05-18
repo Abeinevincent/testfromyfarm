@@ -6,7 +6,7 @@ router.post("/", async (req, res) => {
   // TODO: Send message
   const africastalking = AfricasTalking({
     apiKey: "test1235",
-    username: "sandbox",
+    username: "testsandbox",
   });
 
   try {
