@@ -24,6 +24,10 @@ const BidItemModel = new mongoose.Schema(
       type: String,
       required: true,
     },
+    buyerContact: {
+      type: String,
+      required: true,
+    },
     buyerprice: {
       type: Number,
       required: true,

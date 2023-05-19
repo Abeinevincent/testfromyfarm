@@ -1,22 +1,28 @@
 const AfricasTalking = require("africastalking");
 const router = require("express").Router();
-// TODO: Initialize Africa's Talking
+const axios = require("axios");
 
 router.post("/", async (req, res) => {
   // TODO: Send message
-  const africastalking = AfricasTalking({
-    apiKey: "test1235",
-    username: "testsandbox",
-  });
 
   try {
-    const result = await africastalking.SMS.send({
-      to: "+256700238017",
-      message: "Hey AT Ninja! Wassup...",
-      from: "14737",
+    const { message, number } = req.body;
+    const response = await axios.post(`${process.env.EGOSMSURL}`, {
+      method: process.env.EGOSMSMETHOD,
+      userdata: {
+        username: process.env.EGOSMSUSERNAME,
+        password: process.env.EGOSMSPASSWORD,
+      },
+      msgdata: [
+        {
+          number,
+          message,
+          senderid: process.env.EGOSMSSENDERID,
+        },
+      ],
     });
-    console.log(result);
-    return res.status(200).json(result);
+    console.log(response.data);
+    return res.status(200).json(response.data);
   } catch (err) {
     console.error(err);
     return res.status(500).json(err);
